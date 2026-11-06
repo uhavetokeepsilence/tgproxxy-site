@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>tgPROXXY — прокси для Telegram</title>
+<meta name="description" content="Свежие рабочие MTProto-прокси для Telegram. Проверены автоматически, обновляются каждый час. Подключение в один клик.">
+<meta name="theme-color" content="#0b1118">
+<meta property="og:title" content="tgPROXXY — прокси для Telegram">
+<meta property="og:description" content="Свежие рабочие MTProto-прокси для Telegram. Один клик — и Telegram снова работает.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1118'/%3E%3Ccircle cx='32' cy='32' r='22' fill='%23229ED9'/%3E%3Cpath d='M18 32.5 46 21l-9 25-6.5-9.5z' fill='white'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="30" fill="#229ED9"/>
+        <path d="M16 32.7 50 19l-11 30-8-11.4z" fill="#fff"/>
+      </svg>
+      <span class="brand-name">tg<em>PROXXY</em></span>
+    </div>
+
+    <h1>Рабочие прокси для Telegram</h1>
+    <p class="lead">Свежие MTProto-прокси с проверкой FakeTLS и реального соединения
+      с серверами Telegram. Обновляются автоматически каждый час.</p>
+
+    <div class="stats">
+      <span class="chip"><b id="count">—</b> прокси</span>
+      <span class="chip">обновлено <b id="updated">—</b></span>
+      <span class="chip chip-ok" id="freshness">проверено</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="toolbar" aria-label="Фильтры">
+    <input id="search" type="search" placeholder="Поиск: страна или адрес" autocomplete="off" aria-label="Поиск">
+    <select id="country" aria-label="Страна"><option value="">Все страны</option></select>
+    <select id="sort" aria-label="Сортировка">
+      <option value="rtt">Сначала быстрые</option>
+      <option value="uptime">Сначала стабильные</option>
+    </select>
+    <button id="reload" class="btn ghost" type="button">Обновить</button>
+  </section>
+
+  <ul id="list" class="cards" aria-live="polite"></ul>
+  <p id="empty" class="empty" hidden>Ничего не найдено — попробуйте другой запрос.</p>
+
+  <section class="panel how">
+    <h2>Как подключить</h2>
+    <ol>
+      <li>Нажмите <b>«Подключить»</b> — Telegram откроется и спросит разрешение. Нажмите
+        «Подключить» ещё раз уже в самом Telegram.</li>
+      <li>Если ссылка не открывается, нажмите <b>«Копировать»</b> и вставьте её
+        в чат «Избранное», затем тапните по ссылке.</li>
+      <li>Проверить и сменить прокси можно в Telegram:
+        <b>Настройки → Продвинутые → Тип соединения → Прокси</b>. Там у каждого
+        прокси виден пинг.</li>
+    </ol>
+  </section>
+
+  <section class="panel note">
+    <h2>Что важно знать</h2>
+    <ul>
+      <li>Это <b>публичные прокси</b>: владелец прокси видит ваш IP и факт подключения.
+        Содержимое переписки Telegram шифрует отдельно, но для чувствительных
+        аккаунтов лучше свой прокси или VPN.</li>
+      <li>Прокси для Telegram работает <b>только с Telegram</b> — остальной трафик
+        идёт напрямую.</li>
+      <li>Публичные прокси живут от часов до недель. Если не подключается —
+        берите следующий из списка или нажмите «Обновить».</li>
+      <li>Список собирается из открытых источников и фильтруется: только FakeTLS,
+        только те, что есть в двух независимых проверках, uptime ≥ 95%.</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="wrap foot">
+  <span>tgPROXXY · данные: <a href="https://github.com/0xRadikal/Free-Telegram-Proxy" rel="noopener" target="_blank">0xRadikal</a>,
+    <a href="https://github.com/tgmtproxy/telegram-mtproto-proxy-list" rel="noopener" target="_blank">tgmtproxy</a></span>
+  <span id="status">—</span>
+</footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

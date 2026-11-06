@@ -1,0 +1,10 @@
+# deploy archive for Netlify Drop - not needed in the repo
+tgPROXXY-site.zip
+
+__pycache__/
+*.pyc
+
+# local OS junk
+Thumbs.db
+desktop.ini
+.DS_Store
